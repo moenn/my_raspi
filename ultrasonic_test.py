@@ -34,7 +34,7 @@ def distance():
  
     # 计算超声波的往返时间 = 时刻2 - 时刻1
     time_elapsed = stop_time - start_time
-    # 声波的速度为 343m/s， 转化为cm。得到距离
+    # 声波的速度为 343m/s， 转化为 34300cm/s。
     distance = (time_elapsed * 34300) / 2
  
     return distance
@@ -43,11 +43,10 @@ if __name__ == '__main__':
     try:
         while True:
             dist = distance()
-            print("Measured Distance = {} cm".format(dist))
+            print("Measured Distance = {:.2f} cm".format(dist))
             time.sleep(1)
  
         # Reset by pressing CTRL + C
     except KeyboardInterrupt:
         print("Measurement stopped by User")
         GPIO.cleanup()
-
